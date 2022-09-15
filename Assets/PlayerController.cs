@@ -33,15 +33,18 @@ private void OnDisable()
     }
     private void DoJump(InputAction.CallbackContext obj)
     {
+        Vector2 v2 = movement.ReadValue<Vector2>();
+        Vector3 v3 = new Vector3(v2.x, 0, v2.y);
         Debug.Log("Jump"); //called when jump performed
+        rb.AddForce(Vector2.up * 3, ForceMode.VelocityChange);
     }
     //called every physics update
     private void FixedUpdate()
     {
         Vector2 v2 = movement.ReadValue<Vector2>(); //extract 2d input data
         Vector3 v3 = new Vector3(v2.x, 0, v2.y); //convert to 3d space
-        transform.Translate(v3); //moves transform, ignoring physics
-                                 //rb.AddForce(v3, ForceMode.VelocityChange); 
+        //transform.Translate(v3); //moves transform, ignoring physics
+                                 rb.AddForce(v3, ForceMode.VelocityChange); 
                                  //apply instantphysics force, ignoring mass
     }
 }
