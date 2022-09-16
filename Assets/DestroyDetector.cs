@@ -9,12 +9,18 @@ public class DestroyDetector : MonoBehaviour
     public string HitMessage = "Hit destroy!";
     private void OnTriggerStay(Collider other)
     {
-        timer += Time.deltaTime;
-        Debug.Log(HitMessage);
-        if (timer > waitTime) { 
+       
         if (other.gameObject.tag == "Player")
+            timer += Time.deltaTime;
+            Debug.Log(HitMessage);
+            if (timer > waitTime) {
             Destroy(other.gameObject);
         }
+    }
+
+    private void Start()
+    {
+        timer = 0.0f;
     }
 
     private void Update()

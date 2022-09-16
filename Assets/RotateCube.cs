@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript1 : MonoBehaviour
+public class RotateCube : MonoBehaviour
 {
-    public GameObject cube;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +13,7 @@ public class NewBehaviourScript1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        cube.transform.Rotate(0.5f, 0.0f, 0.5f);
+        
+        transform.Rotate(0.5f, 0.0f, 0.5f);
     }
 }
